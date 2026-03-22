@@ -9,8 +9,8 @@
 #
 # Example Input: "Alice"
 # Example Output: "Hello, Alice!"
-name = input("Enter yor name: ")
-print(f"????")
+name = input("Enter your name: ")
+print(f"Hello, I am {name}!")
 
 # ---------------------------------------------------------------------
 # Exercise 2: Greeting with User's Favorite Activity
@@ -23,6 +23,10 @@ print(f"????")
 # Name: Emily
 # Favorite Activity: hiking
 # Example Output: "Hello, Emily! Enjoy hiking!"
+
+name = input("Enter your name: ")
+favorite_activity = input("Enter your favorite activity: ")
+print(f"Hello, I am {name}! My favorite activity is {favorite_activity}.")
 
 
 # ---------------------------------------------------------------------
@@ -37,6 +41,10 @@ print(f"????")
 # Example Input:
 # Name: Emily
 # Example Output: "Welcome, Emily! Your name in uppercase is: EMILY!"
+
+name = input("Enter your name: ")
+print(f"Welcome, {name.upper()}!")
+
 
 
 # ---------------------------------------------------------------------
@@ -53,6 +61,13 @@ print(f"????")
 # Example Output:
 # Name: John Smith
 # Age: 28
+first_name = input("Enter your first name: ")
+last_name = input("Enter your last name: ")
+age = input("Enter your age: ")
+
+print(f"{first_name.title()} {last_name.title()}")
+print(f"{age}")
+
 
 
 # ---------------------------------------------------------------------
@@ -65,6 +80,8 @@ print(f"????")
 # an f-string. This character count will help users ensure their
 # messages fit within the allowed limit.
 
+text = input("Enter your text message: ")
+print(f"length of your text message: " + str(len(text)))
 
 # ---------------------------------------------------------------------
 # Exercise 6: Text Transformation Game
@@ -74,8 +91,20 @@ print(f"????")
 #
 # Example Input: "Hello, world!"
 # Example Output: "H*ll*, w*rld!"
-sentence = input("Enter a sentence: ")
-transformed_sentence = sentence.replace('a', '*')
+
+input_string = input("Enter a text: ")
+vowels = "aeiouAEIOU"
+result_string = ""
+
+for text in input_string:
+    if text in vowels:
+        result_string += "*"
+    else:
+        result_string += text
+
+print(result_string)
+
+
 
 
 # ------------------------------# ---------------------------------------------------------------------
@@ -90,6 +119,10 @@ transformed_sentence = sentence.replace('a', '*')
 # Name: Lucy Smith
 # Age: 28
 
+data_str = "Lucy Smith:28"
+data = data_str.split(":")
+print("Name : " + data[0])
+print("Age : " + data[1])
 
 # ---------------------------------------------------------------------
 # Exercise 8: Miles to Kilometers Conversion
@@ -105,6 +138,8 @@ transformed_sentence = sentence.replace('a', '*')
 # Input: float("1.23")
 # Output: 1.23
 miles = float(input("Enter distance in miles: "))
+kilometers = float(1.6 * miles)
+print(str(miles) + " miles is approximately " + str(kilometers) + " kilometers")
 
 
 # ---------------------------------------------------------------------
@@ -118,27 +153,43 @@ miles = float(input("Enter distance in miles: "))
 # motivational message using an f-string that encourages the user
 # to stay consistent and reach their fitness goals. Display the
 # motivational message to the user.
+cardio = int(float(input("Enter cardio number: ")))
+strength = int(float(input("Enter strength: ")))
+yoga = int(float(input("Enter yoga number: ")))
+
+total = float(cardio + strength + yoga)
+print(f"total number of physical activities in minutes is : {total}. Keep up the good work..")
+
 
 
 # ---------------------------------------------------------------------
 # Challenge 1 (OPTIONAL!): Reverse the negative integer -324 and keep
 # the negative symbol. Expected output: -423
-input_number = -324
+#input_number = -324
 
 # Convert the integer to a string to handle the negative symbol separately
-num_str = str(input_number)
+#num_str = str(input_number)
 
 # Reverse the digits (excluding the negative symbol) using slicing [::-1]
 # Use this simple guide to help you slice the reversed string:
 # http://bit.ly/3siP47n
 
 # (ADD YOUR CODE BELOW)
-
+#reversed_num_str = num_str[::-1]
 # Add the negative symbol back to the reversed string
-reversed_num = int(num_str[0] + reversed_str)
+#reversed_num = int(num_str[0] + reversed_str)
 
 # Output the result
 # (ADD YOUR CODE BELOW)
+a = -324
+
+a_str = str(a)
+
+reversed_a = a_str[::-1]
+
+reversed_a = reversed_a[:-1]
+
+print(int(a_str[0] + reversed_a))
 
 # ---------------------------------------------------------------------
 # Challenge 2 (OPTIONAL!): Formatting Average Speed
@@ -169,14 +220,12 @@ reversed_num = int(num_str[0] + reversed_str)
 # desired presentation of the average speed.
 
 # Taking input for miles and hours
-miles = int(input("Enter the number of miles: "))
-hours = int(input("Enter the total number of hours: "))
 
-# Calculating average speed
-average_speed = miles / hours
+miles = int(float(input("Enter the number of miles: ")))
+hours = int(float(input("Enter the total number of hours: ")))
 
-# Formatting and displaying the result
-# (Your code here)
-rounded_speed = ????
+average_speed = float(miles / hours)
 
-print(f"The average speed is {rounded_speed} miles per hour")
+rounded_speed = round(average_speed)
+print(f"The average speed is {average_speed}. Rounded speed = {rounded_speed} miles per hour")
+
