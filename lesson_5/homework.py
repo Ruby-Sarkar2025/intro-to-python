@@ -13,6 +13,14 @@
 # Input: -3 => Output: 3
 # Input: 5 => Output: 5
 
+def make_positive( my_number ):
+    if my_number > 0:
+        return my_number
+    else:
+        return abs(my_number)
+
+#print(make_positive(-1210))
+
 
 # ---------------------------------------------------------------------
 
@@ -23,7 +31,18 @@
 # If the number is divisible of 7, print “Go”
 # For numbers which are divisible of 3 and 7, print “BinGo”
 # Otherwise, print the original number: “{number} is just a number”
+def bingo(a):
+    if a % 3 == 0 and a % 7 == 0:
+        str = "Bingo"
+    elif a % 3 == 0:
+        str = "Bin"
+    elif a % 7 == 0:
+        str = "go"
+    else:
+        str = f"{a} is just a number"
+    return str
 
+#print(bingo(10))
 
 # ---------------------------------------------------------------------
 
@@ -35,8 +54,15 @@
 #
 # Example:
 # x = 1, y = 5, z = 3 => Output: 3
+def guess_middle(a, b, c):
+    if (a - b) * (c - a) > 0: #assume a is the middle
+        return a
+    elif (b - a) * (c - b) > 0: #assume b is the middle
+        return b
+    else:
+        return c
 
-
+#print(guess_middle(11, 16, 7))
 # ---------------------------------------------------------------------
 
 # Challenge 4
@@ -48,6 +74,16 @@
 #
 # Palindrome number: 121, 898
 
+def check_palindrome(num):
+    a = str(num)
+    b = a[::-1]
+    if a == b:
+        return True
+    else:
+        return False
+
+#print(check_palindrome(665))
+#print(check_palindrome(666))
 
 # ---------------------------------------------------------------------
 
@@ -62,3 +98,7 @@
 #
 # Example: "tcefreP!" -> Perfect!
 
+def reverse(sample):
+    return sample[::-1]
+
+#print(reverse("hello world"))

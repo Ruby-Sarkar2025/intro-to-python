@@ -5,4 +5,15 @@
 
 # 5 => -5
 # -1 => -1
+def convert_to_negative(number):
+    if number < 0:
+        return number
+    else:
+        return number * -1
+
+
+a = -15
+print(convert_to_negative(a))
+
+
 
