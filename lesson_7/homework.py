@@ -12,10 +12,10 @@
 # Complete the following code in such a way that this loop prints the characters 
 # of `name` one at a time.
 
-# name = "Joseph"
+name = "Joseph"
 
-# for ??? in ???:
-    # print(???)
+for i in name:
+    print(i)
 
 # ---------------------------------------------------------------------
 # Task 2. Create a basic `for` loop with a counter
@@ -23,14 +23,14 @@
 # Complete the following code in such a way that the loop increments the counter
 # and prints the number of characters in `name`name at the end.
 
-# name = 'Tom'
-# counter = ???
+name = 'Tom'
+counter = 0
 
-# for ??? in ???:
-    # counter = ???
+for i in name:
+    counter = counter + 1
 
 # This should print '3'
-# print(counter)
+print(counter)
 
 # ---------------------------------------------------------------------
 # Task 3. Create a basic 'while' loop
@@ -47,11 +47,11 @@ This should print:
 4
 5
 """
-# counter = ???
+counter = 0
 
-# while counter ???:
-    # counter = ???
-    # print(counter)
+while counter < 5:
+    counter = counter + 1
+    print(counter)
 
 # ---------------------------------------------------------------------
 # Task 4. Exit a loop using break 🛑
@@ -59,15 +59,15 @@ This should print:
 # Take the previous example, and modify it so you exit the loop after five iterations, 
 # but this time do it using break.
 
-# counter = ???
+counter = 0
 
-# while ???:
-    # counter = ???
+while 1:
+    counter = counter + 1
 
-    # if ???:
-        # ???
-        
-    # print(counter)
+    if counter == 5:
+        break
+
+    print(counter)
 
 # ---------------------------------------------------------------------
 # Task 5. Range
@@ -78,13 +78,17 @@ This should print:
 # Figure out the values required for range() to generate the expected output.
 
 # 0, 1, 2, 3, 4, 5 (use only one argument)
-# range(???)
+n = range(6)
+for i in n:
+    print(i)
 
 # 0, 1, 2, 3, 4, 5 (use two arguments: start and end)
-# range(???)
+for i in range(0, 6):
+    print(i)
 
 # Odd numbers between 0 and 10: 1, 3, 5, 7, 9
-# range(???)
+for i  in range(1, 10, 2):
+    print(i)
 
 # ---------------------------------------------------------------------
 # Task 6. Using range() in a loop
@@ -111,12 +115,12 @@ This should print:
 # - Create a loop to iterate through characters of my_string. 
 # - If the character is a digit (`if character in numbers`) print it.
 
-# my_string = 's0m3 str1ng w1th numb3r5'
-# numbers = '1234567890'
+my_string = 's0m3 str1ng w1th numb3r5'
+numbers = '1234567890'
 
-# for ??? in ???:
-    # if ??? in ???:
-    #     print(character)
+for character in my_string:
+    if character in numbers:
+         print(character)
 
 
 # Part two: Modify the code to print the first digit only
@@ -128,16 +132,16 @@ This should print:
 # As a simple practice, you have been provided with a famous quote. 
 # Your task is to count and display the total number of vowels in this quote.
 
-# quote = "Life is like riding a bicycle. To keep your balance, you MUST keep moving."
-# vowel_count = 0
+quote = "Life is like riding a bicycle. To keep your balance, you MUST keep moving."
+vowel_count = 0
 
-# for ??? ??? ???:
+for i in quote:
     # 'A' and 'a' are different in python, so we include both upper and lowercase
     # vowels in our comparison string to account for this difference.
-    # if ??? ??? 'aeiouAEIOU':
-        # vowel_count += ???
+    if i in 'aeiouAEIOU':
+        vowel_count += 1
 
-# print(f"The number of vowels in the quote is: {vowel_count}")
+print(f"The number of vowels in the quote is: {vowel_count}")
 
 # ---------------------------------------------------------------------
 # Exercise 3. Sum of all Digits 🔢
@@ -147,15 +151,15 @@ This should print:
 
 # Hint: You can put the numbers you find into a list (cast as `int`) and use `sum()` on the list at the end.
 
-# mixed_string = "abc123xyz456"
-# digits = "0123456789"
-# found_digits = ???
+mixed_string = "abc123xyz456"
+digits = "0123456789"
+found_digits = []
 
-# for char in mixed_string:
-    # if char in ???:
-        # found_digits.a???(int(char))
+for char in mixed_string:
+    if char in digits:
+        found_digits.append(int(char))
 
-# print(f"The total sum of numbers in the string is: {sum(found_digits)}")
+print(f"The total sum of numbers in the string is: {sum(found_digits)}")
 
 # ---------------------------------------------------------------------
 # Exercise 4. Password Strength Checker
@@ -165,14 +169,14 @@ This should print:
 
 # Create a Python program to check the strength of a list of passwords and count how many are strong.
 
-# passwords = ['Passw0rd', 'hello', 'strongPass1', 'weak']
-# strong_password_count = 0
+passwords = ['Passw0rd', 'hello', 'strongPass1', 'weak']
+strong_password_count = 0
 
-# for ??? ??? ???:
-    # if ???(password) >= 8:
-        # strong_password_count ??? 1
+for password in passwords:
+    if len(password) >= 8:
+        strong_password_count += 1
 
-# print(f"Number of strong passwords: {strong_password_count}")
+print(f"Number of strong passwords: {strong_password_count}")
 
 # ---------------------------------------------------------------------
 # Exercise 5. The Red Crayon 🖍️
@@ -182,13 +186,13 @@ This should print:
 
 # Use a while loop to simulate this scenario.  As soon as you find the "Red" crayon, stop the loop.
 
-# colors = ["Blue", "Yellow", "Green", "Red", "Purple", "Orange"]
-# index = 0
+colors = ["Blue", "Yellow", "Green", "Red", "Purple", "Orange"]
+index = 0
 
 # This should basically say: while the current color being evaluated is 
 # different than "Red", increment to the next color and try again.
-# while colors[index] ??? "Red":
-    # print(f"Found {colors[index]} crayon. Still looking for Red.")
-    # index ??? 1
+while colors[index] != "Red":
+    print(f"Found {colors[index]} crayon. Still looking for Red.")
+    index += 1
 
-# print("Found the Red crayon!")
+print(f"Found the Red crayon!")
