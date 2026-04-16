@@ -1,4 +1,5 @@
 # Homework Lesson 8 - Workshop - Homework
+from itertools import count
 
 # READ CAREFULLY THE EXERCISE DESCRIPTION AND SOLVE IT RIGHT AFTER IT
 
@@ -15,6 +16,18 @@
 
 arr = [5, 2, 9, 1, 5, 6]
 # Your code here
+s1 = s2 = float('inf')
+for i in arr:
+    if i < s1:
+        s1, s2 = i, s1
+    elif i < s2:
+        s2 = i
+    #print(num1)
+    #print(num2)
+    #if num1 > num2:
+    #    num2 = i
+print(s1)
+print(s2)
 
 # ---------------------------------------------------------------------
 
@@ -32,6 +45,11 @@ arr = [5, 2, 9, 1, 5, 6]
 
 file_name = "My Summer Photos 2023"
 # Your code here
+f_without_spaces = ""
+for char in file_name:
+    if char != " ":
+        f_without_spaces += char
+print(f_without_spaces)
 
 # ---------------------------------------------------------------------
 
@@ -48,13 +66,13 @@ file_name = "My Summer Photos 2023"
 n = 5
 
 # Initialize 'result' variable to 0. This variable will hold the sum.
-
+result = 0
 # Iterate through the range starting from 1 up to 'number + 1'.
-
-# Add the current value of 'i' to 'result'
-
+for i in range(1, n + 1):
+    # Add the current value of 'i' to 'result'
+    result += i
 # Print the sum of integers from 1 to 'number'
-
+print(result)
 
 # ---------------------------------------------------------------------
 
@@ -74,7 +92,14 @@ n = 5
 # Hints:
 # Use a for loop to iterate over every letter and conditional statements to check the condition
 # Use the count() method (think how it can help you solve this problem!)
+word = 'Ruby'
+msg = 'isogram'
+for char in word:
+    if word.count(char) > 1:
+        msg = 'not a isogram'
+        break
 
+print(f'{msg}')
 
 # ---------------------------------------------------------------------
 
@@ -97,13 +122,18 @@ n = 5
 string = "312"
 
 # Initialize an empty string called 'result' to store the result
-
+result = ""
 # Loop through each character in the string
-
-# Inside the loop, turn the character into a number using int()
-# and store it as a current_num variable
-
-# Multiply the character by its number value
-# and add the repeated character to 'result'
+for char in string:
+    #print(char)
+    # Inside the loop, turn the character into a number using int()
+    # and store it as a current_num variable
+    for i in range(1, int(char) + 1):
+        # Multiply the character by its number value
+        # and add the repeated character to 'result'
+        #print(i)
+        result += char
+        #print(result)
 
 # Print the final result
+print(result)
