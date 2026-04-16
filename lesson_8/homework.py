@@ -16,16 +16,16 @@ from itertools import count
 
 arr = [5, 2, 9, 1, 5, 6]
 # Your code here
-s1 = s2 = float('inf')
-for i in arr:
-    if i < s1:
-        s1, s2 = i, s1
-    elif i < s2:
-        s2 = i
-    #print(num1)
-    #print(num2)
-    #if num1 > num2:
-    #    num2 = i
+def two_lowest_elements(arr):
+    s1 = s2 = float('inf')
+    for i in arr:
+        if i < s1:
+            s1, s2 = i, s1
+        elif i < s2:
+            s2 = i
+    return s1, s2
+
+s1, s2 = two_lowest_elements(arr)
 print(s1)
 print(s2)
 
@@ -45,11 +45,14 @@ print(s2)
 
 file_name = "My Summer Photos 2023"
 # Your code here
-f_without_spaces = ""
-for char in file_name:
-    if char != " ":
-        f_without_spaces += char
-print(f_without_spaces)
+def remove_spaces(s):
+    f_without_spaces = ""
+    for char in s:
+        if char != " ":
+            f_without_spaces += char
+    return f_without_spaces
+
+print(remove_spaces(file_name))
 
 # ---------------------------------------------------------------------
 
@@ -63,17 +66,21 @@ print(f_without_spaces)
 # Example: number = 5. Result = 1 + 2 + 3 + 4 + 5 = 15
 
 # Initialize 'number' variable to 5. This is the number up to which we will calculate the sum.
-n = 5
+n1 = 5
+n2 = 6
 
-# Initialize 'result' variable to 0. This variable will hold the sum.
-result = 0
-# Iterate through the range starting from 1 up to 'number + 1'.
-for i in range(1, n + 1):
-    # Add the current value of 'i' to 'result'
-    result += i
-# Print the sum of integers from 1 to 'number'
-print(result)
+def sum_of_digits(n):
+    # Initialize 'result' variable to 0. This variable will hold the sum.
+    result = 0
+    # Iterate through the range starting from 1 up to 'number + 1'.
+    for i in range(1, n + 1):
+        # Add the current value of 'i' to 'result'
+        result += i
+    # Print the sum of integers from 1 to 'number'
+    return result
 
+print(sum_of_digits(n1))
+print(sum_of_digits(n2))
 # ---------------------------------------------------------------------
 
 # Challenge 4
@@ -92,14 +99,19 @@ print(result)
 # Hints:
 # Use a for loop to iterate over every letter and conditional statements to check the condition
 # Use the count() method (think how it can help you solve this problem!)
-word = 'Ruby'
-msg = 'isogram'
-for char in word:
-    if word.count(char) > 1:
-        msg = 'not a isogram'
-        break
+word1 = 'Ruby'
+word2 = 'Abhishek'
 
-print(f'{msg}')
+def is_isogram(word):
+    msg = 'isogram'
+    for char in word:
+        if word.count(char) > 1:
+            msg = 'not a isogram'
+            break
+    return msg
+
+print(is_isogram(word1))
+print(is_isogram(word2))
 
 # ---------------------------------------------------------------------
 
@@ -121,19 +133,21 @@ print(f'{msg}')
 
 string = "312"
 
-# Initialize an empty string called 'result' to store the result
-result = ""
-# Loop through each character in the string
-for char in string:
-    #print(char)
-    # Inside the loop, turn the character into a number using int()
-    # and store it as a current_num variable
-    for i in range(1, int(char) + 1):
-        # Multiply the character by its number value
-        # and add the repeated character to 'result'
-        #print(i)
-        result += char
-        #print(result)
+def repeat_digits(string):
+    # Initialize an empty string called 'result' to store the result
+    result = ""
+    # Loop through each character in the string
+    for char in string:
+        #print(char)
+        # Inside the loop, turn the character into a number using int()
+        # and store it as a current_num variable
+        for i in range(1, int(char) + 1):
+            # Multiply the character by its number value
+            # and add the repeated character to 'result'
+            #print(i)
+            result += char
+            #print(result)
+    # Print the final result
+    return result
 
-# Print the final result
-print(result)
+print(repeat_digits(string))
