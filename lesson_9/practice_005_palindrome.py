@@ -8,11 +8,16 @@
 # is a palindrome or not.
 
 # Hint: The following code might be useful to determine if a word is a palindrome.
+def is_palindrome(word):
+    word = word.lower()
+    reversed_word = word[::-1]
+    if word == reversed_word:
+        # Word IS a palindrome
+        return True
+    else:
+        # Word is NOT a palindrome
+        return False
 
-reversed_word = word[::-1]
-
-if word == reversed_word:
-   # Word IS a palindrome
-else:
-   # Word is NOT a palindrome
-
+words = ["Rotator", "Timbaktu", "Racecar", "Honda" "Kayak", "Madam", "Level", "Hyundai", "Civic", "Noon"]
+for word in words:
+    print(f"Is {word} a Palindrome ? ", is_palindrome(word))

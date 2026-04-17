@@ -3,17 +3,28 @@
 
 # Basic Function
 # Define a basic function that only prints Hello. Create the definition using def and the call that executes it.
+def print_hello():
+    print(f"Hello!")
+
+#print_hello()
+#print_hello()
 
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Basic Function with Parameters
 # Define a basic function that prints a greeting taking a given name.
+def greetings(name):
+    print(f"Hello, {name}!")
 
+#greetings("Abhishek")
+#greetings("Adrija")
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Basic Function with Default Values
 # Define a basic function that prints a greeting for a name, but if none is given, use stranger instead of the name,
 # so it behaves like this:
+def greeting(name = "Stranger"):
+    print(f"Hello, {name}!")
 
 # Prints: Hello, stranger!
 # greeting()
@@ -25,12 +36,14 @@
 
 # Multiple Parameters
 # Define a function that takes two parameters, add them up and prints the sum.
+def add(x = 0, y = 0):
+    print(f"The sum of {x} + {y} = {x + y}")
 
 # Prints: The sum of 1 + 2 = 3
-# add(1, 2)
+#add(1, 2)
 
 # Prints (default values might be useful): The sum of 1 + 0 = 1
-# add(1)
+#add(1)
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -38,12 +51,14 @@
 # Define a function that takes a first_name and a last_name and prints a full_name. Define the function and create
 # the function call in such a way that first_name and last_name can be given in any order and the printed full_name
 # would still be correct.
+def full_name(first, last):
+    print(f"{first} {last}")
 
 # Prints: Nelson Mandela
-# full_name("Nelson", "Mandela")
+#full_name("Nelson", "Mandela")
 
 # Is there anything you can add to the line below, so the function also prints "Nelson Mandela"?
-# full_name("Mandela", "Nelson")
+#full_name( last = "Mandela", first = "Nelson")
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -53,7 +68,15 @@
 # list using a for loop.
 
 # Tip: Validator functions return True / False which we can use in conditionals to do things like print a message.
+def validate(string):
+    if len(string) > 8:
+        return True
+    else:
+        return False
 
+#list = ["abcdefghijkl", "abcde", "abcdefghijklmnop", "abcdef"]
+#for item in list:
+#    print(f"{item} is more than 8 characters long :", validate(item))
 # ----------------------------------------------------------------------------------------------------------------------
 
 # You're going to revisit some of the algorithms you've already solved. But this time, there's a twist! Your challenge
@@ -72,9 +95,18 @@
 # - If the number is a multiple of 3, the function should return: Fizz
 # - If the number is a multiple of 5, the function should return: Buzz
 # - Otherwise, the function should return the number.
+def fizz_buzz(num):
+    if num % 3 == 0 and num % 5 == 0:
+        return "FizzBuzz"
+    elif num % 3 == 0 and num % 5 != 0:
+        return "Fizz"
+    elif num % 3 != 0 and num % 5 == 0:
+        return "Buzz"
 
 # Call the function here
-
+#print(fizz_buzz(10))
+#print(fizz_buzz(21))
+#print(fizz_buzz(30))
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Anagram
@@ -85,6 +117,14 @@
 # What You Need to Check
 # - The two strings must have the same length.
 # - The sorted form of the first string must be equal to the sorted form of the second string.
+def is_anagram(str1, str2):
+    if len(str1) != len(str2):
+        return False
+    str1 = sorted(str1)
+    str2 = sorted(str2)
+    if str1 != str2:
+        return False
+    return True
 
 # Approach
 # - Create a function that takes two strings as arguments.
@@ -94,6 +134,8 @@
 # Test your function with these strings
 test_str1 = 'abcde'
 test_str2 = 'edcba'
+
+#print(is_anagram(test_str1, test_str2))
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -109,10 +151,17 @@ test_str2 = 'edcba'
 # - return result
 
 # Define your function here
+def find_max(numbers):
+    max = 0
+    for num in numbers:
+        if num > max:
+            max = num
+    return max
 
 # Test the function with a sample list of numbers.
-
+list = [1, 32, 37, 24, 51, 68, 17, 98, 19, 10]
 # Output should be the maximum number in the list.
+print(find_max(list))
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -126,5 +175,14 @@ test_str2 = 'edcba'
 # - An odd number leaves a remainder of 1 when divided by 2.
 
 # Define a function is_even_odd(number) here
+def is_even_odd(num):
+    if num % 2 == 0:
+        return "Even"
+    else:
+        return "Odd"
 
 # Test the function calling it using a variety of numbers like: 1, 10, 5.5, 9
+list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+#for num in list:
+#    print(f"{num} is : ", is_even_odd(num))
