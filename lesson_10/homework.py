@@ -18,6 +18,12 @@
 
 def multiplication_of_three(number):
 # Your code here
+    if number < 10:
+        return number
+    else:
+            return (number % 10) * multiplication_of_three(number // 10)
+
+#print(multiplication_of_three(349))
 
 
 # ---------------------------------------------------------------------
@@ -41,6 +47,18 @@ def sum_even_and_product_odd(arr):
     sum_even = 0
     product_odd = 1
     # Your code here
+    list = []
+    for number in arr:
+        if number % 2 == 0:
+            sum_even += number
+        else:
+            product_odd *= number
+    list.append(sum_even)
+    list.append(product_odd)
+    return list
+
+array = [1,2,3,4]
+#print(sum_even_and_product_odd(array))
 
 
 # ---------------------------------------------------------------------
@@ -52,12 +70,17 @@ def sum_even_and_product_odd(arr):
 # and the negatives become positives.
 #
 # Example:
-# Input: [1, 5, -2, 4]
+Input = [1, 5, -2, 4]
 # Output: [-1, -5, 2, -4]
 
 def invert_list(arr):
+    output = []
 # Your code here
+    for number in arr:
+        output.append( -1 * number )
+    return output
 
+#print(invert_list(Input))
 
 # ---------------------------------------------------------------------
 
@@ -77,13 +100,13 @@ def max_diff(arr):
     # If it is, return 0 as there's no difference to be calculated
     if len(arr) == 0:
         return 0
+    # If the list is not empty,
+    # proceed with the rest of the code.
+    # Your code here
+    return max(arr) - min(arr)
 
-
-# If the list is not empty,
-# proceed with the rest of the code.
-
-# Your code here
-
+Input = [3, 5, 7, 2]
+#print(max_diff(Input))
 
 # ---------------------------------------------------------------------
 
@@ -103,5 +126,20 @@ def max_diff(arr):
 # Hint:  Iterate through each number (num) in the array (arr) and check if the current number  falls within the range [min_val, max_val].
 
 def sum_between_range(arr, min_val, max_val):
-# Your code here
+    # Your code here
+    output = 0
+    string = ""
+    array = sorted(arr)
+    for number in array:
+        if number >= min_val and number <= max_val:
+            output += number
+            string += str(number) + " + "
+            #print(output)
+    string = " (" + string[:-3] + ")"
+    return str(output) + string
 
+arr = [3, 2, 1, 4, 10, 8, 7, 6, 9, 5]
+min_val = 3
+max_val = 7
+
+print("Output:", sum_between_range(arr, min_val, max_val))
